@@ -16,7 +16,7 @@ buttonElement.addEventListener(`click`, function(){
   let userNumbers = [];
 
   const inputElement = document.getElementById(`userNumbers`);
-  const userNumbersString = inputElement.value.split("");
+  let userNumbersString = inputElement.value.split("");
   console.log(userNumbersString);
 
   for(let i = 0; i < userNumbersString.length; i++){
@@ -34,8 +34,19 @@ buttonElement.addEventListener(`click`, function(){
 
   if(botNumbers === userNumbers){
     console.log("Hai vinto");
+    containerElement.innerHTML = 
+    `<div class="bar">
+      <p class="win">HAI VINTO</p>
+    </div>`;
   }else{
+    console.log(userNumbers.join(``));
     console.log(answerString);
+
+    containerElement.innerHTML = 
+    `<div class="bar">
+        <p class="inserted">${userNumbers.join(``)}</p>
+        <p class="bot-answer">${answerString}</p>
+    </div>`;
   }
 
   
